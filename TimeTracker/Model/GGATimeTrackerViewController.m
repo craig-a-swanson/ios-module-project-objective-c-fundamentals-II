@@ -14,6 +14,7 @@
 
 // MARK: - Properties
 @property (nonatomic) GGATimedTaskController *timedTaskController;
+@property (nonatomic) GGATimedTask *existingTask;
 
 // MARK: - Outlets
 @property (strong, nonatomic) IBOutlet UITextField *clientNameTextField;
@@ -37,26 +38,42 @@
 
 // MARK: - Actions
 - (IBAction)logTime:(UIButton *)sender {
-    NSString *clientName = _clientNameTextField.text;
-    NSString *workSummary = _workSummaryTextField.text;
-    double hourlyRate = [_hourlyRateTextField.text doubleValue];
-    double hoursWorked = [_hoursWorkedTextField.text doubleValue];
-    
-    [self.timedTaskController createTimedTaskWith:clientName
-                                          summary:workSummary
-                                          Payrate:hourlyRate
-                                      hoursWorked:hoursWorked];
+    if (_existingTask) {
+        _existingTask.clientName = _clientNameTextField.text;
+        _existingTask.workSummary = _workSummaryTextField.text;
+        _existingTask.rate = [_hourlyRateTextField.text doubleValue];
+        _existingTask.hours = [_hoursWorkedTextField.text doubleValue];
+        
+    } else {
+        NSString *clientName = _clientNameTextField.text;
+        NSString *workSummary = _workSummaryTextField.text;
+        double hourlyRate = [_hourlyRateTextField.text doubleValue];
+        double hoursWorked = [_hoursWorkedTextField.text doubleValue];
+        
+        [self.timedTaskController createTimedTaskWith:clientName
+                                              summary:workSummary
+                                              Payrate:hourlyRate
+                                          hoursWorked:hoursWorked];
+    }
     
     [self.tableView reloadData];
-    [self updateViews];
+    [self clearViews];
 }
 
 // MARK: - Methods
-- (void)updateViews {
+- (void)clearViews {
     _clientNameTextField.text = @"";
     _workSummaryTextField.text = @"";
     _hourlyRateTextField.text = @"";
     _hoursWorkedTextField.text = @"";
+    _existingTask = nil;
+}
+
+- (void)updateViews {
+    _clientNameTextField.text = _existingTask.clientName;
+    _workSummaryTextField.text = _existingTask.workSummary;
+    _hourlyRateTextField.text = [NSString stringWithFormat:@"%0.2f", _existingTask.rate];
+    _hoursWorkedTextField.text = [NSString stringWithFormat:@"%0.2f", _existingTask.hours];
 }
 
 // MARK: - TableView Datasource
@@ -76,8 +93,10 @@
 }
 
 // MARK: - UITableViewDelegate
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    _existingTask = [self.timedTaskController.timedTasks objectAtIndex:indexPath.row];
+    [self updateViews];
+}
 
 @end
