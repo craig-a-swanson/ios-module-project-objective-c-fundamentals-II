@@ -10,7 +10,7 @@
         <!--Time Tracker View Controller-->
         <scene sceneID="Oja-gw-Uzb">
             <objects>
-                <viewController id="QVk-7N-MGS" customClass="LSITimeTrackerViewController" sceneMemberID="viewController">
+                <viewController id="QVk-7N-MGS" customClass="GGATimeTrackerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yH6-Y7-uP0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,6 +44,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="QVk-7N-MGS" id="eQ1-UH-cK1"/>
+                                    <outlet property="delegate" destination="QVk-7N-MGS" id="fQy-dQ-9z0"/>
+                                </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2Xn-BO-YQ6">
                                 <rect key="frame" x="20" y="52" width="374" height="198"/>
@@ -71,6 +75,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yC4-dN-8qK">
                                         <rect key="frame" x="0.0" y="168" width="374" height="30"/>
                                         <state key="normal" title="Log Time"/>
+                                        <connections>
+                                            <action selector="logTime:" destination="QVk-7N-MGS" eventType="touchUpInside" id="vMG-oT-4L3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -87,6 +94,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iFM-0g-Kt5"/>
                     </view>
+                    <connections>
+                        <outlet property="clientNameTextField" destination="sqz-sU-Pxu" id="ykt-Vo-Eeb"/>
+                        <outlet property="hourlyRateTextField" destination="1s7-qi-GbT" id="GMY-bW-p2t"/>
+                        <outlet property="hoursWorkedTextField" destination="hJY-xA-vK5" id="Hpc-5I-1jg"/>
+                        <outlet property="tableView" destination="NGG-z0-Z9V" id="46X-0l-awM"/>
+                        <outlet property="workSummaryTextField" destination="Zaq-vp-K0H" id="RdH-7b-OsV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kod-47-YCC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
