@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		445DCA892435A68F008FA840 /* GGATimedTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 445DCA882435A68F008FA840 /* GGATimedTask.m */; };
 		445DCA8C2436EA53008FA840 /* GGATimedTaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 445DCA8B2436EA53008FA840 /* GGATimedTaskController.m */; };
+		445DCA922436F4B7008FA840 /* GGATimeTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 445DCA912436F4B7008FA840 /* GGATimeTrackerViewController.m */; };
 		467FC83C23F3738B00C15592 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 467FC83B23F3738B00C15592 /* AppDelegate.m */; };
 		467FC83F23F3738B00C15592 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 467FC83E23F3738B00C15592 /* SceneDelegate.m */; };
 		467FC84523F3738B00C15592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 467FC84323F3738B00C15592 /* Main.storyboard */; };
@@ -22,6 +23,8 @@
 		445DCA882435A68F008FA840 /* GGATimedTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGATimedTask.m; sourceTree = "<group>"; };
 		445DCA8A2436EA53008FA840 /* GGATimedTaskController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGATimedTaskController.h; sourceTree = "<group>"; };
 		445DCA8B2436EA53008FA840 /* GGATimedTaskController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGATimedTaskController.m; sourceTree = "<group>"; };
+		445DCA902436F4B7008FA840 /* GGATimeTrackerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GGATimeTrackerViewController.h; path = TimeTracker/Model/GGATimeTrackerViewController.h; sourceTree = SOURCE_ROOT; };
+		445DCA912436F4B7008FA840 /* GGATimeTrackerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GGATimeTrackerViewController.m; path = TimeTracker/Model/GGATimeTrackerViewController.m; sourceTree = SOURCE_ROOT; };
 		467FC83723F3738B00C15592 /* TimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		467FC83A23F3738B00C15592 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		467FC83B23F3738B00C15592 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 		467FC85C23F376B400C15592 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				445DCA902436F4B7008FA840 /* GGATimeTrackerViewController.h */,
+				445DCA912436F4B7008FA840 /* GGATimeTrackerViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				445DCA922436F4B7008FA840 /* GGATimeTrackerViewController.m in Sources */,
 				467FC83C23F3738B00C15592 /* AppDelegate.m in Sources */,
 				467FC84D23F3738C00C15592 /* main.m in Sources */,
 				445DCA892435A68F008FA840 /* GGATimedTask.m in Sources */,
